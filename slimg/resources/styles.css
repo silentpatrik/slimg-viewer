@@ -1,20 +1,124 @@
 body {
-    background-color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
 }
 
-#neutralinoapp {
+#sidebar {
+    width: 250px;
+    background-color: #f0f0f0;
+    padding: 10px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+#folderTree {
+    margin-top: 10px;
+    overflow-y: auto;
+    max-height: calc(100vh - 70px); /* Adjust height to fit within the viewport */
+}
+
+#mainContent {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#controls {
+    padding: 10px;
+    background-color: #f0f0f0;
     text-align: center;
-    -webkit-user-select: none;
-    user-select: none;
-    cursor: default;
 }
 
-#neutralinoapp h1{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 20px;
+#imageContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
 }
 
-#neutralinoapp > div {
-    font-size: 16px;
-    font-weight: normal;
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #000;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
 }
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.image-box {
+    position: relative;
+    width: auto;
+    height: auto;
+    margin: 10px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.image-box img {
+    max-width: 100%;
+    max-height: 100%;
+    display: none; /* Hide initially */
+}
+
+.image-box .spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.image-box .info {
+    text-align: left;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+
+#loader {
+   
+    box-shadow:
+      10px 20px 10px #aa9955,
+      -20px 0 80px #f0f,
+      20px 0 80px #0ff,
+      inset 0 0 50px #fff,
+      inset 50px 0 80px #f0a,
+      inset -50px 0 80px #0ff,
+      inset 50px 0 30px #00faaa,
+      inset -50px 0 30px #ffffff;
+    animation: pulsate 4s  ease-in infinite;
+  }
+  
+  @keyframes pulsate {
+    
+    50% {
+      box-shadow:
+        5px 10px 40px #fff,
+        20px 0 40px #f0ffaa,
+        -20px 0 80px #0ff,
+        inset 50px 0 100px #fff,
+        inset -50px 0 80px #a0a,
+        inset 50px 0 80px #0ff,
+        inset -50px 0 30px #f0a,
+        inset 50px 0 30px #00aaff;
+      rotation:360deg;
+    }
+   
+  }
