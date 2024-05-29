@@ -6,22 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Browser</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
+<body class="bg-gray-900 text-white">
     <div id="neutralinoapp">
-        <div id="sidebar">
-            <button id="openFolderBtn">Open Folder</button>
-            <div id="folderTree"></div>
+        <div id="gallery-view" class="p-4">
+            <div class="flex justify-between items-center mb-4">
+                <h1 class="text-xl font-bold">Image Gallery</h1>
+                <div>
+                    <button id="prev-page"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Prev Page</button>
+                    <button id="next-page"
+                        class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Next Page</button>
+                    <input type="number" id="files-per-page"
+                        class="bg-gray-700 text-white border-none py-2 px-4 rounded" value="10" min="1">
+                </div>
+            </div>
+            <div id="image-gallery" class="grid grid-cols-4 gap-4"></div>
         </div>
-        <div id="controls">
-            <button id="sortNameAscBtn">Sort by Name (Asc)</button>
-            <button id="sortNameDescBtn">Sort by Name (Desc)</button>
-            <button id="sortModifiedAscBtn">Sort by Modified (Asc)</button>
-            <button id="sortModifiedDescBtn">Sort by Modified (Desc)</button>
-            <button id="groupByTypeBtn">Group by Type</button>
+        <div id="fullscreen-view" class="hidden fixed inset-0 bg-black flex justify-center items-center">
+            <img id="fullscreen-image" src="" alt="Image" class="max-w-full max-h-full">
+            <button id="prev-image"
+                class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Prev</button>
+            <button id="next-image"
+                class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-gray-800 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded">Next</button>
         </div>
-        <div id="imageContainer"></div>
     </div>
     <script src="js/neutralino.js"></script>
     <script src="js/main.js"></script>
